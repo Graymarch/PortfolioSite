@@ -1,5 +1,9 @@
-import type { WorkItem } from "../App";
-
+export type WorkItem = {
+    title: string
+    description: string
+    link: string
+    imageSrc: string
+}
 
 export function WorkCard({ title, description, link, imageSrc }: WorkItem) {
     return (

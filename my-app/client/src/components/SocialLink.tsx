@@ -1,4 +1,7 @@
-import type { SocialItem } from './App';
+export type SocialItem = {
+  label: string
+  url: string
+}
 
 export function SocialLink({ label, url }: SocialItem) {
   return (

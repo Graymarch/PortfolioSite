@@ -1,18 +1,9 @@
 import './App.css'
 import { WorkCard } from './components/WorkCard'
 import { SocialLink } from './components/SocialLink'
-
-export type WorkItem = {
-  title: string
-  description: string
-  link: string
-  imageSrc: string
-}
-
-export type SocialItem = {
-  label: string
-  url: string
-}
+import RecentWork from './components/RecentWork'
+import type { SocialItem } from './components/SocialLink'
+import type { WorkItem } from './components/WorkCard'
 
 function App() {
   const works: WorkItem[] = [
@@ -53,24 +44,8 @@ function App() {
       </header>
 
       <div className="content-grid">
-        <section className="selected-work-section">
-          <h2>Selected Work</h2>
-          <div className="work-grid">
-            {works.map((work) => (
-              <WorkCard key={work.title} {...work} />
-            ))}
-          </div>
-        </section>
-
         <div className="side-panel">
-          <section className="recent-work-panel">
-            <h2>Recent Work</h2>
-            <ul className="recent-work-list">
-              <li>Product redesign for a client dashboard</li>
-              <li>Migration of a legacy reporting workflow</li>
-              <li>Prototype for a new internal tool</li>
-            </ul>
-          </section>
+          <RecentWork />
 
           <section className="social-panel">
             <h2>Socials</h2>
@@ -81,6 +56,15 @@ function App() {
             </ul>
           </section>
         </div>
+
+        <section className="selected-work-section">
+          <h2>Selected Work</h2>
+          <div className="work-grid">
+            {works.map((work) => (
+              <WorkCard key={work.title} {...work} />
+            ))}
+          </div>
+        </section>
       </div>
     </main>
   )
