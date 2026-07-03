@@ -52,23 +52,36 @@ function App() {
         </div>
       </header>
 
-      <section>
-        <h2>Selected Work</h2>
-        <div className="work-grid">
-          {works.map((work) => (
-            <WorkCard key={work.title} {...work} />
-          ))}
-        </div>
-      </section>
+      <div className="content-grid">
+        <section className="selected-work-section">
+          <h2>Selected Work</h2>
+          <div className="work-grid">
+            {works.map((work) => (
+              <WorkCard key={work.title} {...work} />
+            ))}
+          </div>
+        </section>
 
-      <section>
-        <h2>Social</h2>
-        <ul className="social-list">
-          {socials.map((social) => (
-            <SocialLink key={social.label} {...social} />
-          ))}
-        </ul>
-      </section>
+        <div className="side-panel">
+          <section className="recent-work-panel">
+            <h2>Recent Work</h2>
+            <ul className="recent-work-list">
+              <li>Product redesign for a client dashboard</li>
+              <li>Migration of a legacy reporting workflow</li>
+              <li>Prototype for a new internal tool</li>
+            </ul>
+          </section>
+
+          <section className="social-panel">
+            <h2>Socials</h2>
+            <ul className="social-list">
+              {socials.map((social) => (
+                <SocialLink key={social.label} {...social} />
+              ))}
+            </ul>
+          </section>
+        </div>
+      </div>
     </main>
   )
 }
