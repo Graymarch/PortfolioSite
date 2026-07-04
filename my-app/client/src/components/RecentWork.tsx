@@ -1,23 +1,39 @@
 import { WorkCard } from './WorkCard';
+import {useState, useEffect} from 'react';
 
-async function RecentWork(){
-    const res = await fetch("https://api.github.com/user/repos?sort=pushed&direction=desc&per_page=1", {
-        headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_PAT}`,
-        } 
-    });
+interface Repo{
+    name: string;
+    html_url: string;
+    pushed_at: string;
+}
 
-    const [data] = await res.json();
+function RecentWork(){
+    const [repo, setRepo] = useState <Repo | null>(null);
+    const [error, setError] = useState<string |null>(null);
+
+    useEffect(() => {
+        fetch("/api/recent-work")
+        .then((res) => res.json())
+        .then((repo) => setRepo(repo[0]))
+        .catch((err) => {
+            setError(err.message);
+            console.error(`Failed to fetch repo: ${err}`);
+        });
+    }, []);
 
     return(
         <section className="recent-work-panel">
             <h2>Recent Work</h2>
-            <WorkCard 
-            title={data.name}
-            description={data.description}
-            link={data.html_url}
-            imageSrc={data.owner.avatar_url}
-            />
+            {error && <p>There was a problem loading the link.</p>}
+            {repo ? <WorkCard 
+                title={repo.name}
+                description={"This is what I was just working on. Take a look!"}
+                link={repo.html_url}
+                imageSrc={undefined}
+                /> 
+                : <p>Loading...</p>
+            }
+            
         </section>
     )
 }

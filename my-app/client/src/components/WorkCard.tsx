@@ -2,13 +2,13 @@ export type WorkItem = {
     title: string
     description: string
     link: string
-    imageSrc: string
+    imageSrc: string | undefined
 }
 
 export function WorkCard({ title, description, link, imageSrc }: WorkItem) {
     return (
         <article className="work-card">
-        <img className="work-image" src={imageSrc} alt={`${title} preview`} />
+        {imageSrc && <img className="work-image" src={imageSrc} alt={`${title} preview`} />}
         <div className="work-content">
             <h3>{title}</h3>
             <p>{description}</p>
