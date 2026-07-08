@@ -81,6 +81,7 @@ function App() {
 
       <div className="content-grid">
         <div className="side-panel">
+          
           <RecentWork />
 
           <section className="contact-panel">

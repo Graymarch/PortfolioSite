@@ -9,7 +9,7 @@ interface Repo{
 
 function RecentWork(){
     const [repo, setRepo] = useState <Repo | null>(null);
-    const [error, setError] = useState<string |null>(null);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         fetch("/api/recent-work")
@@ -33,7 +33,6 @@ function RecentWork(){
                 /> 
                 : <p>Loading...</p>
             }
-            
         </section>
     )
 }
