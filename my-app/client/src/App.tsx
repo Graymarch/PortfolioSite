@@ -1,8 +1,8 @@
 import './App.css'
 import { WorkCard } from './components/WorkCard'
-import { SocialLink } from './components/SocialLink'
+import { ContactLink } from './components/ContactLink'
 import RecentWork from './components/RecentWork'
-import type { SocialItem } from './components/SocialLink'
+import type { ContactItem } from './components/ContactLink'
 import type { WorkItem } from './components/WorkCard'
 
 function App() {
@@ -25,9 +25,45 @@ function App() {
       link: 'https://example.com/project-three',
       imageSrc: createPlaceholderImage('Project Three'),
     },
+    {
+      title: 'Project One',
+      description: 'A sample product showcase with a clear introduction and project summary.',
+      link: 'https://example.com/project-one',
+      imageSrc: createPlaceholderImage('Project One'),
+    },
+    {
+      title: 'Project Two',
+      description: 'A lightweight case study for a dashboard or interface concept.',
+      link: 'https://example.com/project-two',
+      imageSrc: createPlaceholderImage('Project Two'),
+    },
+    {
+      title: 'Project Three',
+      description: 'An example work item that can be replaced with a real case study later.',
+      link: 'https://example.com/project-three',
+      imageSrc: createPlaceholderImage('Project Three'),
+    },
+    {
+      title: 'Project One',
+      description: 'A sample product showcase with a clear introduction and project summary.',
+      link: 'https://example.com/project-one',
+      imageSrc: createPlaceholderImage('Project One'),
+    },
+    {
+      title: 'Project Two',
+      description: 'A lightweight case study for a dashboard or interface concept.',
+      link: 'https://example.com/project-two',
+      imageSrc: createPlaceholderImage('Project Two'),
+    },
+    {
+      title: 'Project Three',
+      description: 'An example work item that can be replaced with a real case study later.',
+      link: 'https://example.com/project-three',
+      imageSrc: createPlaceholderImage('Project Three'),
+    },
   ]
 
-  const socials: SocialItem[] = [
+  const contacts: ContactItem[] = [
     { label: 'GitHub', url: 'https://github.com' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com' },
     { label: 'Twitter', url: 'https://x.com' },
@@ -47,11 +83,11 @@ function App() {
         <div className="side-panel">
           <RecentWork />
 
-          <section className="social-panel">
-            <h2>Socials</h2>
-            <ul className="social-list">
-              {socials.map((social) => (
-                <SocialLink key={social.label} {...social} />
+          <section className="contact-panel">
+            <h2>Contact</h2>
+            <ul className="contact-list">
+              {contacts.map((contact) => (
+                <ContactLink key={contact.label} {...contact} />
               ))}
             </ul>
           </section>

@@ -52,10 +52,14 @@ main {
 }
 
 .recent-work-panel,
-.social-panel {
+.contact-panel {
   border: 1px solid #cccccc;
   padding: 16px;
   flex: 1;
+}
+
+.recent-work-panel .work-card{
+  margin-top: 25px;
 }
 
 .work-grid {
@@ -63,6 +67,8 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
   margin-top: 12px;
+  max-height: 750px;
+  overflow-y: auto;
 }
 
 .work-card {
@@ -86,7 +92,7 @@ main {
   margin: 0 0 10px;
 }
 
-.social-list {
+.contact-list {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -95,7 +101,7 @@ main {
   margin: 12px 0 0;
 }
 
-.social-link {
+.contact-link {
   display: inline-block;
   padding: 8px 12px;
   border: 1px solid #cccccc;
